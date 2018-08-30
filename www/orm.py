@@ -1,9 +1,6 @@
-import logging; logging.basicConfig(level=logging.INFO)
+import logging  # logging.basicConfig(level=logging.INFO)
 # import asyncio
 import aiomysql
-# import time
-# import uuid
-# from www.orm import Model, BooleanField, FloatField, TextFiled
 
 
 def log(sql, args=()):
@@ -18,9 +15,9 @@ async def create_pool(loop=None, **kw):
         port=kw.get('port', 3306),
         user=kw['user'],
         password=kw['password'],
-        db=kw['db'],
+        db=kw['database'],
         charset=kw.get('charset', 'utf-8'),
-        autocommint=kw.get('autocommit', True),
+        autocommit=kw.get('autocommit', True),
         maxsize=kw.get('maxsize', 10),
         minsize=kw.get('minsize', 1),
         loop=loop
